@@ -60,3 +60,7 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# Forge Client IDs should not be checked in
+FORGE_CLIENT_IDS.sh
+

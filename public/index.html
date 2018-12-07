@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/style.min.css?v=v6.0" type="text/css">
   <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/viewer3D.min.js?v=v6.0"></script>
   <!-- this project files -->
+  <script src="js/qrcode.min.js"></script>
   <link href="css/main.css" rel="stylesheet" />
   <script src="js/ForgeTree.js"></script>
   <script src="js/ForgeViewer.js"></script>
@@ -41,6 +42,7 @@
             <span id="userInfo"></span>
             <span id="refreshHubs" class="glyphicon glyphicon-refresh" style="cursor: pointer; display: none" title="Refresh list of files"></span>
             <span id="signOut" class="glyphicon glyphicon-log-out" style="margin-top:5px;cursor: pointer; float: right; display: none" title="Sign out"> </span>
+            <button type="button" class="btn-sm btn-primary" data-toggle="modal" data-target="#QRCodeModal">QR Code</button>
           </div>
           <div id="userHubs">
             <div style="padding-top: 100px; text-align: center;">
@@ -57,10 +59,29 @@
         </div>
       </div>
       <div class="col-sm-8 fill">
-        <div id="forgeViewer"></div>
+      <div id="forgeViewer"></div>
       </div>
     </div>
   </div>
+  <div class="modal fade" id="QRCodeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">QR Code</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <span id="qrcode" style="width:512px; height:512px; margin:4px; padding: 4px;"><i>Please first select a model...</i></span>
+              <br />Scan the QR Code with the AR Viewer application to load the model.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </body>
 <iframe id="hiddenFrame" style="visibility: hidden; display: none" />
 </html>

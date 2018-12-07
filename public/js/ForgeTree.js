@@ -113,6 +113,19 @@ function prepareUserHubsTree() {
       $("#forgeViewer").empty();
       var urn = data.node.id;
       launchViewer(urn);
+
+      $("#qrcode").empty();
+
+      jQuery.ajax({
+        url: '/api/forge/oauth/token',
+        success: function (res) {
+          //res.expires_in
+          var qrcode = new QRCode("qrcode", {
+            text: '{ "urn": "' + urn + '", "token": "' + res.access_token + '"}',
+            width: 512,
+            height: 512});
+            }
+      });
     }
   });
 }
